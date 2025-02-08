@@ -10,4 +10,4 @@
 #### 4. Download CCS V12, control suite.
 #### 5. Eagle PCB Model -- 2 varients.
 #### 6. Documentation of ML
-#### 7. Paper To find switching losses in MATLAB.
+#### 7. Paper for Calculating Switching & Conduction Losses in Power Semiconductors for Circuit Simulations.
