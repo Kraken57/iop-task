@@ -1,38 +1,38 @@
 # Power Efficiency Estimation Using Neural Networks
 
 ## Overview
-This project trains a neural network to estimate **maximum power** and **efficiency** based on input values of voltage source \( V_{source} \) and series resistance \( R_{series} \). The model learns from synthetic training data and predicts power-efficiency values for unseen inputs.
+This project trains a neural network to estimate **maximum power** and **efficiency** based on input values of voltage source $V_{source}$ and series resistance $R_{series}$. The model learns from synthetic training data and predicts power-efficiency values for unseen inputs.
 
 ## Mathematical Formulation
 ### Power and Efficiency Calculation
 The theoretical maximum power across the load is given by:
-\[
+$$
 P_{max} = \frac{V_{source}^2}{4 R_{series}}
-\]
+$$
 The efficiency is assumed to be:
-\[
+$$
 \eta = 50\%
-\]
+$$
 
 ### Loss Function
 The loss function used for training is **Mean Squared Error (MSE):**
-\[
+$$
 L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \left( y_i - \hat{y}_i \right)^2
-\]
-where \( y_i \) is the actual value and \( \hat{y}_i \) is the predicted value.
+$$
+where $y_i$ is the actual value and $\hat{y}_i$ is the predicted value.
 
 ### Optimization Algorithm
 We use **Adam Optimizer**, which combines momentum and adaptive learning rates:
-\[
+$$
 \theta_{t+1} = \theta_t - \alpha \frac{m_t}{\sqrt{v_t} + \epsilon}
-\]
-where \( m_t \) and \( v_t \) are estimates of the first and second moments of gradients.
+$$
+where $m_t$ and $v_t$ are estimates of the first and second moments of gradients.
 
 ## Neural Network Architecture
 The neural network consists of:
-- **Input layer:** 2 neurons (\( V_{source}, R_{series} \))
+- **Input layer:** 2 neurons ($V_{source}, R_{series}$)
 - **Hidden layers:** Two fully connected layers with ReLU activation
-- **Output layer:** 2 neurons (\( P_{max}, \eta \))
+- **Output layer:** 2 neurons ($P_{max}, \eta$)
 
 ### Architecture Diagram (Generated in Python)
 Below is a Python script to visualize the neural network architecture:
@@ -41,13 +41,16 @@ Below is a Python script to visualize the neural network architecture:
 
 ## Code Explanation
 ### Data Preparation
-- **Synthetic training data** is generated with random values for \( V_{source} \) and \( R_{series} \).
+- **Synthetic training data** is generated with random values for $V_{source}$ and $R_{series}$.
 - The theoretical power and efficiency are computed.
 - Data is converted into PyTorch tensors.
 
 ### Model Definition
 A **fully connected feedforward neural network** is implemented using `torch.nn.Linear` layers with ReLU activation:
 ```python
+import torch
+import torch.nn as nn
+
 class PowerEfficiencyNN(nn.Module):
     def __init__(self):
         super(PowerEfficiencyNN, self).__init__()
