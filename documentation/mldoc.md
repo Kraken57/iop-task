@@ -5,28 +5,44 @@ This project trains a neural network to estimate **maximum power** and **efficie
 
 ## Mathematical Formulation
 ### Power and Efficiency Calculation
+### Theoretical Power and Efficiency
+
 The theoretical maximum power across the load is given by:
+
 $$
 P_{max} = \frac{V_{source}^2}{4 R_{series}}
 $$
+
 The efficiency is assumed to be:
+
 $$
 \eta = 50\%
 $$
 
+---
+
 ### Loss Function
-The loss function used for training is **Mean Squared Error (MSE):**
+
+The loss function used for training is Mean Squared Error (MSE):
+
 $$
 L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \left( y_i - \hat{y}_i \right)^2
 $$
-where $y_i$ is the actual value and $\hat{y}_i$ is the predicted value.
+
+where \( y_i \) is the actual value and \( \hat{y}_i \) is the predicted value.
+
+---
 
 ### Optimization Algorithm
-We use **Adam Optimizer**, which combines momentum and adaptive learning rates:
+
+We use the Adam Optimizer, which combines momentum and adaptive learning rates:
+
 $$
 \theta_{t+1} = \theta_t - \alpha \frac{m_t}{\sqrt{v_t} + \epsilon}
 $$
-where $m_t$ and $v_t$ are estimates of the first and second moments of gradients.
+
+where \( m_t \) and \( v_t \) are estimates of the first and second moments of gradients.
+
 
 ## Neural Network Architecture
 The neural network consists of:
