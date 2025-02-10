@@ -53,7 +53,7 @@ The neural network consists of:
 ### Architecture Diagram (Generated in Python)
 Below is a Python script to visualize the neural network architecture:
 
-![NN_Structure](imgs/nnstructure.png)
+![NN_Structure](imgs/neural.png)
 
 ## Code Explanation
 ### Data Preparation
