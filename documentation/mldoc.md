@@ -3,9 +3,10 @@
 ## Overview
 This project trains a neural network to estimate **maximum power** and **efficiency** based on input values of voltage source $V_{source}$ and series resistance $R_{series}$. The model learns from synthetic training data and predicts power-efficiency values for unseen inputs.
 
+![NN_Structure](imgs/neural.png)
+
 ## Mathematical Formulation
 ### Power and Efficiency Calculation
-### Theoretical Power and Efficiency
 
 The theoretical maximum power across the load is given by:
 
@@ -22,33 +23,54 @@ $$
 ---
 
 ### Loss Function
-
-The loss function used for training is Mean Squared Error (MSE):
+The loss function used for training is **Mean Squared Error (MSE)**:
 
 $$
 L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \left( y_i - \hat{y}_i \right)^2
 $$
 
-where \( y_i \) is the actual value and \( \hat{y}_i \) is the predicted value.
+where:
+- $y_{i}$ is the actual power/efficiency.
+- $\hat{y}\_{i}$ is the predicted power/efficiency.
+- $N$ is the total number of training examples.
+
+MSE penalizes larger errors quadratically, making it sensitive to large deviations.
 
 ---
 
 ### Optimization Algorithm
-
-We use the Adam Optimizer, which combines momentum and adaptive learning rates:
+We use the **Adam Optimizer**, which combines momentum and adaptive learning rates:
 
 $$
 \theta_{t+1} = \theta_t - \alpha \frac{m_t}{\sqrt{v_t} + \epsilon}
 $$
 
-where \( m_t \) and \( v_t \) are estimates of the first and second moments of gradients.
+where:
+- $m_{t}$ and $v_{t}$ are estimates of the first and second moments of gradients.
+- $\alpha\$ is the learning rate.
 
+Adam helps achieve **faster convergence** and **better stability** compared to standard gradient descent.
 
 ## Neural Network Architecture
 The neural network consists of:
-- **Input layer:** 2 neurons ($V_{source}, R_{series}$)
-- **Hidden layers:** Two fully connected layers with ReLU activation
-- **Output layer:** 2 neurons ($P_{max}, \eta$)
+- **Input layer:** 2 neurons $\((V_{source}, R_{series})\)$
+- **Hidden layers:** Two fully connected layers with **ReLU activation**
+- **Output layer:** 2 neurons $\((P_{max}, \eta)\)$
+
+### Why Use ReLU?
+The **Rectified Linear Unit (ReLU)** activation function is used because:
+- It helps **avoid vanishing gradients** (unlike Sigmoid or Tanh).
+- It enables faster training by introducing **non-linearity**.
+- Computation is efficient: $\( \max(0, x) \)$, meaning values below zero are discarded.
+
+If no activation function were used, the network would behave like a linear regression model and fail to capture complex patterns in data.
+
+### Backpropagation and Learning Process
+Neural networks learn through **backpropagation**, which involves:
+1. **Forward Pass:** Compute predictions $\( \hat{y} \)$.
+2. **Compute Loss:** Use MSE to measure prediction error.
+3. **Backward Pass:** Compute gradients using the chain rule.
+4. **Weight Update:** Apply Adam optimizer to adjust weights.
 
 ### Architecture Diagram (Generated in Python)
 Below is a Python script to visualize the neural network architecture:
@@ -57,12 +79,13 @@ Below is a Python script to visualize the neural network architecture:
 
 ## Code Explanation
 ### Data Preparation
-- **Synthetic training data** is generated with random values for $V_{source}$ and $R_{series}$.
-- The theoretical power and efficiency are computed.
-- Data is converted into PyTorch tensors.
+- Generates random training data for $\( V_{source} \)$ and $\( R_{series} \)$.
+- Computes $\( P_{max} \)$ and $\( \eta \)$ using theoretical formulas.
+- Converts data into PyTorch tensors.
 
 ### Model Definition
-A **fully connected feedforward neural network** is implemented using `torch.nn.Linear` layers with ReLU activation:
+A **fully connected feedforward neural network** is implemented using `torch.nn.Linear` layers with **ReLU activation**:
+
 ```python
 import torch
 import torch.nn as nn
@@ -83,8 +106,8 @@ class PowerEfficiencyNN(nn.Module):
 ```
 
 ### Training Process
-- **Loss Function:** MSELoss
-- **Optimizer:** Adam
+- **Loss Function:** `torch.nn.MSELoss()`
+- **Optimizer:** Adam optimizer (`torch.optim.Adam()`)
 - **Training Loop:** Runs for 1000 epochs with gradient backpropagation
 
 ```python
@@ -101,6 +124,7 @@ for epoch in range(num_epochs):
 
 ### Prediction Function
 Once trained, the model can predict power and efficiency for any new input:
+
 ```python
 def predict_power_efficiency(V_source_input, R_series_input):
     model.eval()
@@ -112,4 +136,3 @@ def predict_power_efficiency(V_source_input, R_series_input):
 
 ## Conclusion
 This project demonstrates how a **neural network** can learn to approximate power and efficiency using regression. By training on simulated data, it can generalize and predict values for new inputs effectively.
-
