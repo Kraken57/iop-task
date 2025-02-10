@@ -3,6 +3,8 @@
 ## Overview
 This project trains a neural network to estimate **maximum power** and **efficiency** based on input values of voltage source $V_{source}$ and series resistance $R_{series}$. The model learns from synthetic training data and predicts power-efficiency values for unseen inputs.
 
+### Architecture Diagram
+
 ![NN_Structure](imgs/neural.png)
 
 ## Mathematical Formulation
@@ -71,11 +73,6 @@ Neural networks learn through **backpropagation**, which involves:
 2. **Compute Loss:** Use MSE to measure prediction error.
 3. **Backward Pass:** Compute gradients using the chain rule.
 4. **Weight Update:** Apply Adam optimizer to adjust weights.
-
-### Architecture Diagram (Generated in Python)
-Below is a Python script to visualize the neural network architecture:
-
-![NN_Structure](imgs/neural.png)
 
 ## Code Explanation
 ### Data Preparation
