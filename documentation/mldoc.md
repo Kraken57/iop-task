@@ -8,18 +8,12 @@ This project trains a neural network to estimate **maximum power** and **efficie
 ![NN_Structure](imgs/neural.png)
 
 ## Mathematical Formulation
-### Power and Efficiency Calculation
+### Power Calculation
 
 The theoretical maximum power across the load is given by:
 
 $$
 P_{max} = \frac{V_{source}^2}{4 R_{series}}
-$$
-
-The efficiency is assumed to be:
-
-$$
-\eta = 50\%
 $$
 
 ---
@@ -55,9 +49,9 @@ Adam helps achieve **faster convergence** and **better stability** compared to s
 
 ## Neural Network Architecture
 The neural network consists of:
-- **Input layer:** 2 neurons $\((V_{source}, R_{series})\)$
+- **Input layer:** 1 neurons $\( R_{load}\)$
 - **Hidden layers:** Two fully connected layers with **ReLU activation**
-- **Output layer:** 2 neurons $\((P_{max}, \eta)\)$
+- **Output layer:** 1 neurons $\((P_{max})\)$
 
 ### Why Use ReLU?
 The **Rectified Linear Unit (ReLU)** activation function is used because:
