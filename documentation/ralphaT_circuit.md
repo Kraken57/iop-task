@@ -51,9 +51,7 @@ We consider a simple **series circuit** where we aim to **maximize the power tra
 
 ### **Power Calculation**
 Using the standard power formula:
-$$
-P = \frac{V^2 R_l}{(R_s + R_l)^2}
-$$
+$P = \frac{V^2 R_l}{(R_s + R_l)^2}$
 where:
 - $P$ = power transferred to the load
 - $V$ = supply voltage (constant at 10V)
@@ -110,12 +108,8 @@ model.save("circuit_rl_model.zip")
 ---
 ## **📌 Step 5: Validate RL Model**
 We compare the RL model’s **predictions** against the **theoretical maximum power transfer theorem**, which states:
-$$
-R_l = R_s
-$$
-$$
-P_{max} = \frac{V^2}{4R_s}
-$$
+$R_l$ = $R_s$
+$P_{max}$ = $\frac{V^2}{4R_s}$
 
 ### **Testing the Model**
 ```python
