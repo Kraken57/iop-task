@@ -41,4 +41,8 @@
 - dsp model , code of spwm in ccs
 - presentation
 - report 
-- pcb design 
+- pcb design
+
+### Miscellaneous
+- Time line ka kuch mention kiya tha
+- 
