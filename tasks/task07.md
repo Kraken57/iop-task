@@ -3,7 +3,12 @@
 ###  Presentation
 
 - TO DO :
-    - 1st page diagrams - explain
+    - 1st page diagrams - explain --- about your project(objective)
+    - motivation
+    - ML based method for spwm
+    - quickly about spwm and parallel ml based 
+    - no detail about the model- challenges
+    - parameters considering for spwm in ml model (if THD and MI)
     - spwm - *(know about it how it is generated etc)*
     - work on machine learning *(normal and RL)*
     - approaches we did - *(like the MATLAB model)*
