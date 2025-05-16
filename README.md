@@ -57,10 +57,10 @@
 
 ### CCS Codes
 
-1. [SPWM by cpu_timer in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/spwmcputimer.c)
+**1. [SPWM by cpu_timer in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/spwmcputimer.c)**
 
-2. [ML based SPWM with cpu_timer in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/mlspwmwithcputimer.c)
+**2. [ML based SPWM with cpu_timer in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/mlspwmwithcputimer.c)**
 
-3. [epwm code in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/epwm.c)
+**3. [epwm code in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/epwm.c)**
 
-4. [SPWM with epwm in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/spwmwithepwm.c)
+**4. [SPWM with epwm in CCS](https://github.com/Kraken57/iop-task/blob/main/ccscodes/spwmwithepwm.c)**
