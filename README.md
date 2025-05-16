@@ -18,6 +18,8 @@
 - #### [Converting the Model the RL one to C file so that we can run it into DSP ](https://github.com/Kraken57/iop-task/tree/main/rltoc)
 > **NOTE**: You have to prune the model to reduce the size of this weights.h file
 
+> **Also this weights.h file is for the ML model that is generating the SPWM wave**
+
 ### SPWM using ML
 **1. [Documentation](https://github.com/Kraken57/iop-task/blob/main/solutions/task04/spwm_ml/documentation/spwm_ml.md)**
 
@@ -48,3 +50,5 @@
 **3. [Pruning docs](https://github.com/Kraken57/iop-task/blob/main/solutions/task05/documentation/pruning.md)**
 
 **4. [Trained Model zip file](https://github.com/Kraken57/iop-task/tree/main/solutions/task05/rl_spwm/model)**
+
+
